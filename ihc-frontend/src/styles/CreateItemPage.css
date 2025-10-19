@@ -52,47 +52,22 @@
     margin-bottom: 50px;
 }
 
-.elements-list-form{
-    list-style: none;
-    padding: 0;
-    color: white;
-}
-
-.elements-list-form li{
-    margin: 0 25px 10px 0;
-    padding: 2.5px 10px;
-    border-radius: 8px; 
-    background-color: var(--color-secundary); 
-}
-
-.text-add-style{
-    display: inline-block;
-    transition: 300ms;
-    cursor: pointer;
-    user-select: none;  
-    margin: 0 0 10px 0;
-}
-
-.text-add-style:hover{
-    text-shadow: 0 0 5px rgb(255, 255, 255);
-}
-
-.save-button{
+.save-item-button{
     background-color: white;
     color: black;
     cursor: pointer;
     margin-left: 40px;
 }
 
-.save-button:hover{
+.save-item-button:hover{
     transform: scale(1.1);
 }
 
-.cancel-button:hover{
+.cancel-item-button:hover{
     transform: scale(1.1);
 }
 
-.cancel-button{
+.cancel-item-button{
     background-color: var(--color-secundary);
     color: white;
     cursor: pointer;

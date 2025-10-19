@@ -90,3 +90,28 @@ p{
   padding: 8px 20px;
   text-align: center;
 }
+
+.text-add-style{
+    display: inline-block;
+    transition: 300ms;
+    cursor: pointer;
+    user-select: none;  
+    margin: 0 0 10px 0;
+}
+
+.text-add-style:hover{
+    text-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+.elements-list-form{
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+
+.elements-list-form li{
+    margin: 0 25px 10px 0;
+    padding: 2.5px 10px;
+    border-radius: 8px; 
+    background-color: var(--color-secundary); 
+}

@@ -67,8 +67,8 @@ function CreateItemPage(){
                 <h3 className="text-add-style">+ Añadir etiqueta</h3>
             </div>
             <div className="foot-form row">
-                <button className="cancel-button button-general">Cancelar</button>
-                <button className="save-button button-general">Guardar</button>
+                <button className="cancel-item-button button-general">Cancelar</button>
+                <button className="save-item-button button-general">Guardar</button>
             </div>
         </div>
     )
