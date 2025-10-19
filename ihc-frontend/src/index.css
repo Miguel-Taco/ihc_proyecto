@@ -14,10 +14,11 @@
   --color-accent2: #948979;
 }
 *{
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 body{
   margin: 0;
+  background: var(--color-primary);
 }
 
 a {
@@ -30,6 +31,7 @@ a:hover {
 }
 h1,h2,h3,h4{
   font-weight: 400;
+  color: white;
 }
 h1{
   font-weight: 600;
@@ -45,4 +47,38 @@ h2{
 p{
   margin: 0 0 5px 0;
   font-size: 1rem;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.padding{
+    padding: 10px;
+}
+
+.form-input-general{
+  width: 100%;
+  background: none;
+  border: 1px solid var(--color-accent2);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  padding: 5px;
+}
+
+.button-general{
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 5px;  
+  padding: 5px 5px;
 }

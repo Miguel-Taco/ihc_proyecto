@@ -1,12 +1,13 @@
-import FoodCard from './components/foodCard'
+import FoodCard from './components/FoodCard'
+import CreateItemPage from './pages/CreateItemPage'
 import "./app.css"
 function App() {
 
   return (
     <div className='app'>
-      <FoodCard></FoodCard> {/*Pueden quitar este componente para probar el de ustedes*/}
+      <CreateItemPage/>
     </div>
   )
 }
 
-export default App
+export default App;
