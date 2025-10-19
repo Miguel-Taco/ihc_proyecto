@@ -1,7 +1,9 @@
 import '../styles/FoodCard.css'
 import ceviche from '../assets/imgs/ceviche.jpg'
 function FoodCard(){
+
     return(
+        
         <div className="foodcard-container row padding">
             <div className="foodcard-left-container col padding">
                 <img src={ceviche} alt="ceviche"></img>
