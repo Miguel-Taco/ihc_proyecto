@@ -25,6 +25,10 @@
 #input-cat{
     width: 180px;
 }
+
+#input-cat option{
+    background-color: var(--color-secundary);
+}
 .data-two-container{
     width: 20%;
     margin-right: 50px;
@@ -62,9 +66,11 @@
 }
 
 .text-add-style{
+    display: inline-block;
     transition: 300ms;
     cursor: pointer;
     user-select: none;  
+    margin: 0 0 10px 0;
 }
 
 .text-add-style:hover{
@@ -74,19 +80,31 @@
 .save-button{
     background-color: white;
     color: black;
-    border: 0;
-    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.save-button:hover{
+    transform: scale(1.1);
+}
+
+.cancel-button:hover{
+    transform: scale(1.1);
 }
 
 .cancel-button{
     background-color: var(--color-secundary);
     color: white;
-    border: 0;
-    border-radius: 5px;
+    cursor: pointer;
 }
 
 .foot-form{
     justify-content: end;
+    align-items: center;
+}
+
+.extra-options-container{
+    margin-top: 16px;
 }
 
 .extra-options-container label{
@@ -98,8 +116,4 @@
      margin-right: 10px;
      width: 20px;
      height: 20px;
-}
-
-.save-button{
-    margin-left: 30px;
 }
