@@ -6,13 +6,42 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+ 
   /*Colores globales para el sitio*/
   --color-primary: #222831;
   --color-secundary: #393E46;
   --color-accent: #DFD0B8;
   --color-accent2: #948979;
 }
+
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--color-accent2) var(--color-secundary);
+}
+
+/*ESTILOS GLOBALRES PARA EL SCROLL/*
+/* Chrome, Edge, Brave, Opera */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-secundary);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent2);
+  border-radius: 10px;
+  border: 2px solid var(--color-secundary);
+  transition: background-color 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent);
+}
+
 *{
   box-sizing: border-box;
 }
