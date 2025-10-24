@@ -1,8 +1,8 @@
 .createPerfil-main-container{
     width: 75%;
     min-height: 100vh;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 0 auto; 
+    padding-top: 40px;
 }
 
 .createPerfil-main-container h2{
@@ -11,7 +11,13 @@
     margin-bottom: 15px;
 }
 
+.createPerfil-main-container h3{
+    margin-bottom: 18px;
+}
+
 .createPerfil-main-container input{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     width: 50%;
 }
 
@@ -21,12 +27,11 @@
 }
 
 .createPerfil-main-container .text-add-style{
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .diet-checkbox-container{
-    max-width: 40%;
-    
+    max-width: 60%;
 }
 
 .diet-checkbox-container label{
@@ -64,10 +69,34 @@
     border: 1px solid rgb(255, 248, 59);    
 }
 
-.ingredientes-dislike-container{
+.alergenos-container{
     max-width: 40%;
 }
 
+.calorias-rango-container{
+    width: 22%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.calorias-rango-container p{
+    color: white;
+    font-size: 1.2rem;
+}
+.calorias-rango-container div{
+    width: 35%;
+}
+
+.calorias-rango-container div input{
+    min-width: 70%;
+}
+
+.calorias-rango-container div label{
+    background: var(--color-secundary);
+    border: 1px solid var(--color-accent2);
+    margin: 0;
+    padding: 5px;
+}
 .cancel-perfil-button{
     background-color: white;
     color: black;

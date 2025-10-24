@@ -1,0 +1,63 @@
+.main-page-container{
+    margin: 0 100px;
+    text-align: center;
+}
+
+.mainpage-body-container{
+    height: 80vh; 
+}
+
+.filtros-container{
+    width: 20%;
+    border-radius: 20px;
+    background: var(--color-secundary);
+    margin-right: 30px;
+    padding: 20px 0 20px 25px;
+    text-align: start;
+}
+
+.items-container{
+    flex: 1;
+    border-radius: 20px;
+    background: var(--color-secundary);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 250px;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.filtros-container input{
+    width: 20%;
+    text-align: center;
+    border-color: rgb(171, 171, 171);
+}
+.filtros-container h2{
+    color: var(--color-accent);
+}
+
+.sabor-container{
+    margin-bottom: 20px;
+}
+
+.sabor-options-container input{
+     margin-right: 5px;
+     width: 20px;
+     height: 20px;
+}
+
+.sabor-options-container label{
+    color: white;
+    margin-right: 20px;
+}  
+
+#preferencias-picante{
+    margin-top: 10px;
+}
+
+.buttons-main-container{
+    height: 80px;
+}

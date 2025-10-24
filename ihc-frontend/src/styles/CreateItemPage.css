@@ -1,4 +1,5 @@
 .createItem-main-container{
+    padding-top: 40px;
     box-sizing: border-box;
     width: 75%;
     min-height: 100vh;
@@ -48,6 +49,10 @@
     width: 40%;
 }
 
+.etiquetas-container{
+    width: 40%
+}
+
 .basic-info-item-container{
     margin-bottom: 50px;
 }
@@ -78,7 +83,7 @@
     align-items: center;
 }
 
-.extra-options-container{
+.extra-options-container,.sabor-options-container{
     margin-top: 16px;
 }
 
@@ -88,6 +93,16 @@
 }
 
 .extra-options-container input{
+     margin-right: 10px;
+     width: 20px;
+     height: 20px;
+}
+
+.sabor-options-container label{
+    color: white;
+    margin-right: 40px;
+}   
+.sabor-options-container input{
      margin-right: 10px;
      width: 20px;
      height: 20px;

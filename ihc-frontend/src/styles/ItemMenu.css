@@ -1,0 +1,35 @@
+.item-menu-container{
+    text-align: center;
+}
+
+.item-menu-container{
+    color: var(--color-accent);
+}
+
+.item-menu-container img{
+    border-radius: 20px;
+    min-width: 185px;
+    max-width: 185px;
+}
+
+.item-menu-avaliable-container,.item-menu-price-container{
+    color: white;
+}
+
+.item-menu-avaliable-container p{
+    width: 80%;
+    text-align: start;
+}
+
+.item-menu-price-container{
+    justify-content: space-around;
+}
+
+.avaliable-view{
+    box-sizing: border-box;
+    flex: 1;
+    background-color: rgb(113, 168, 113);
+    border-radius: 10px;
+    height: 10px;
+    margin: auto 0;
+}

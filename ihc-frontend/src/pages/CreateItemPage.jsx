@@ -58,13 +58,25 @@ function CreateItemPage(){
                     </div>
                 </div>
             </div>
-            <div className="etiquetas-container">
-                <h2>Etiquetas</h2>
-                    <ul className="elements-list-form row wrap">
-                        <li>Vegano</li>
-                        <li>Vegano</li>                     
-                    </ul>                
-                <h3 className="text-add-style">+ Añadir etiqueta</h3>
+            <div className="etiquetas-sabor-container row">
+                <div className="etiquetas-container">
+                    <h2>Etiquetas</h2>
+                        <ul className="elements-list-form row wrap">
+                            <li>Vegano</li>                 
+                        </ul>                
+                    <h3 className="text-add-style">+ Añadir etiqueta</h3>
+                </div>   
+                <div className="sabor-container">
+                    <h2>Sabor base</h2>
+                    <div className="sabor-options-container row">
+                        <input type="radio" name="opcionSabor"/>
+                        <label>dulce</label>
+                        <input type="radio" name="opcionSabor"/>
+                        <label>salado</label>
+                        <input type="radio" name="opcionSabor"/>
+                        <label>agridulce</label>
+                    </div>
+                </div>                             
             </div>
             <div className="foot-form row">
                 <button className="cancel-item-button button-general">Cancelar</button>
