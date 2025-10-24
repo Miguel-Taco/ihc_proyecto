@@ -115,3 +115,11 @@
 .createPerfil-foot-container{
     width: 40%;
 }
+
+.createPerfil-foot-container button{
+    transition: 200ms;
+}
+
+.createPerfil-foot-container button:hover{
+    transform: scale(1.1);
+}
