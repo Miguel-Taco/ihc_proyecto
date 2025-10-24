@@ -1,0 +1,121 @@
+.misperfiles-main-container {
+    width: 75%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 0;
+    position: relative;
+}
+
+.misperfiles-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.misperfiles-usuario-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.misperfiles-usuario-button:hover {
+    transform: scale(1.05);
+}
+
+.usuario-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--color-secundary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-accent2);
+    font-size: 24px;
+}
+
+.misperfiles-usuario-button span {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.misperfiles-title-section {
+    margin-bottom: 30px;
+}
+
+.misperfiles-title-section h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.misperfiles-subtitle {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.misperfiles-list-container {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1a1e24;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent2) var(--color-secundary);
+}
+
+.misperfiles-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.misperfiles-list-container::-webkit-scrollbar-track {
+    background: var(--color-secundary);
+    border-radius: 10px;
+}
+
+.misperfiles-list-container::-webkit-scrollbar-thumb {
+    background: var(--color-accent2);
+    border-radius: 10px;
+}
+
+.misperfiles-list-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+.misperfiles-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.crear-perfil-button {
+    background-color: white;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px 30px;
+}
+
+.crear-perfil-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.salir-button {
+    background-color: var(--color-secundary);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px 30px;
+}
+
+.salir-button:hover {
+    transform: scale(1.05);
+    background-color: #4a5058;
+}
