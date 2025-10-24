@@ -44,7 +44,7 @@ function CreatePerfilPage(){
                 </div>
                 <p>hasta</p>
                 <div className="row">
-                    <input className="form-input-general"></input>
+                    <input type="number" className="form-input-general"></input>
                     <label>kcal</label>
                 </div>
             </div>
