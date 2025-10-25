@@ -1,7 +1,12 @@
 import "../styles/CreatePerfilPage.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faPepperHot } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom"
+
+
 function CreatePerfilPage(){
+    const navigate = useNavigate();
+
     return(
         <div className="createPerfil-main-container">
             <h1>Crear Perfil Personalizado</h1>
@@ -50,7 +55,7 @@ function CreatePerfilPage(){
             </div>
             <div className="createPerfil-foot-container row">
                 <button className="save-perfil-button button-general">Guardar Perfil</button>    
-                <button className="cancel-perfil-button button-general">Cancelar</button>                           
+                <button onClick={() => {navigate('/mis-perfiles')}} className="cancel-perfil-button button-general">Cancelar</button>                           
             </div>
         </div>
     )

@@ -117,3 +117,9 @@
 .buttons-main-container button:hover{
     transform: scale(1.1);
 }
+
+.navigate-rol-container{
+    position: fixed;
+    margin-left: 400px;
+    gap: 50px;
+}

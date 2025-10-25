@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import '../styles/MenuAdminPage.css';
 import logo from '../assets/imgs/logo.png';
+import { useNavigate, Link } from 'react-router-dom';
 
 function MenuAdminPage() {
+  const navigate = useNavigate();
+
   const [selectedCategory, setSelectedCategory] = useState('Entrada');
   const [menuItems, setMenuItems] = useState({
     'Entrada': [],
@@ -124,6 +127,10 @@ function MenuAdminPage() {
 
   return (
     <div className="menu-admin-container">
+      <div className='navigate-rol-container row'>
+        <Link to="/">CLIENTE</Link>
+        <Link to="/menu-admin">ADMIN</Link>
+      </div>
       <header className="menu-admin-header">
         <div className="header-left">
           <img src={logo} alt="SmartFood Logo" className="logo" />
@@ -170,7 +177,7 @@ function MenuAdminPage() {
               </svg>
               Actualizar
             </button>
-            <button className="add-item-button">+ Agregar Entrada</button>
+            <button onClick={() => {navigate('/crear-item')}} className="add-item-button">+ Agregar Item</button>
           </div>
 
           <div className="items-table">
