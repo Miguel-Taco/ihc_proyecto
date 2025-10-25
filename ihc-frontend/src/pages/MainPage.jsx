@@ -2,10 +2,20 @@ import '../styles/MainPage.css'
 import ItemMenu from '../components/ItemMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate, Link } from 'react-router-dom';
 import logo from '../assets/imgs/logo.png'
+
 function MainPage(){
+    const navigate = useNavigate();
+
     return(
         <div className="main-page-container">
+            {/*MOMENTANEO PARA VER LAS VISTAS TANTO DEL CLIENTE COMO DEL ADMIN GAA*/}
+            <div className='navigate-rol-container row'>
+                <Link to="/">CLIENTE</Link>
+                <Link to="/menu-admin">ADMIN</Link>
+            </div>
+            {/**/}
             <div className='mainpage-head-container row'>   
                 <div className='head-left-top-container row'>
                     <h1>SMARTFOOD</h1>
@@ -14,9 +24,9 @@ function MainPage(){
                 <div className='head-center-top-container'>
                     <h1>MENU DEL DÍA</h1>
                     <div className='buttons-main-container row'>
-                        <button className='button-general'>Crear perfil</button>
-                        <button className='button-general'>Ver perfiles</button>
-                        <button className='button-general'>Seleccionar perfil</button>
+                        <button className='button-general' onClick={() => {navigate('/crear-perfil')}}>Crear perfil</button>
+                        <button className='button-general' onClick={() => {navigate('/mis-perfiles')}}>Ver perfiles</button>
+                        <button className='button-general' onClick={() => {navigate('/mis-perfiles')}}>Seleccionar perfil</button>
                     </div>
                 </div>
                 <div className='head-right-top-container col'>

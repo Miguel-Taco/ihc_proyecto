@@ -1,7 +1,10 @@
 import "../styles/MisPerfilesPage.css"
 import PerfilCard from '../components/PerfilCard'
+import { useNavigate } from "react-router-dom";
 
 function MisPerfilesPage() {
+    const navigate = useNavigate();
+
     const perfiles = [
         {
             id: 1,
@@ -54,7 +57,7 @@ function MisPerfilesPage() {
                 <button className="crear-perfil-button button-general">
                     + Crear Perfil Personalizado
                 </button>
-                <button className="salir-button button-general">
+                <button onClick={() => {navigate('/')}} className="salir-button button-general">
                     Salir
                 </button>
             </div>

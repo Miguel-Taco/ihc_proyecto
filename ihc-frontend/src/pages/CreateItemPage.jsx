@@ -1,6 +1,9 @@
 import "../styles/CreateItemPage.css"
 import ceviche from '../assets/imgs/ceviche.jpg'
+import { useNavigate } from "react-router-dom"
 function CreateItemPage(){
+    const navigate = useNavigate();
+
     return(
         <div className="createItem-main-container">
             <h1>Agregar Item</h1>
@@ -79,7 +82,7 @@ function CreateItemPage(){
                 </div>                             
             </div>
             <div className="foot-form row">
-                <button className="cancel-item-button button-general">Cancelar</button>
+                <button onClick={() => {navigate('/menu-admin')}} className="cancel-item-button button-general">Cancelar</button>
                 <button className="save-item-button button-general">Guardar</button>
             </div>
         </div>
