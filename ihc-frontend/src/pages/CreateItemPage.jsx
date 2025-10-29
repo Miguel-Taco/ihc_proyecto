@@ -1,5 +1,4 @@
 import "../styles/CreateItemPage.css"
-import ceviche from '../assets/imgs/ceviche.jpg'
 import { useNavigate } from "react-router-dom"
 function CreateItemPage(){
     const navigate = useNavigate();
