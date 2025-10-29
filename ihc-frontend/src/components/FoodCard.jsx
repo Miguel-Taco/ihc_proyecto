@@ -1,5 +1,5 @@
 import '../styles/FoodCard.css'
-import ceviche from '../assets/imgs/ceviche.jpg'
+
 function FoodCard(){
 
     return(

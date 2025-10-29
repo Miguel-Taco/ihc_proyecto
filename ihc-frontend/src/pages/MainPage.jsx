@@ -4,10 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '../assets/imgs/logo.png'
+import { useEffect, useState } from 'react';
+import { getItems } from "../api/items";
 
 function MainPage(){
     const navigate = useNavigate();
+    const [itemsMenuDisponibles, setItemsMenuDisponibles] = useState([]);
 
+    useEffect(() =>{
+        const fetchItems = async () => {
+        try {
+            const data = await getItems(); // 🔹 llamada al backend
+            setItemsMenuDisponibles(data);
+        } catch (error) {
+            console.error("❌ Error al obtener los items:", error);
+        }
+        };
+        fetchItems();
+    },[]);
+    
     return(
         <div className="main-page-container">
             {/*MOMENTANEO PARA VER LAS VISTAS TANTO DEL CLIENTE COMO DEL ADMIN GAA*/}
@@ -73,23 +88,10 @@ function MainPage(){
 
                 </aside>
                 <section className="items-container">
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
-                    <ItemMenu/>
+                    {/*De alguna forma debo lograr que aqui se carguen todos items que existen en el menú */}
+                    {itemsMenuDisponibles.map( item => (
+                        <ItemMenu key={item.id_item} item={item}/>
+                    ))}
                 </section>
             </div>
             
