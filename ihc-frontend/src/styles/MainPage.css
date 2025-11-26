@@ -1,10 +1,20 @@
+.main-page-container {
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Offset for fixed navbar */
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+}
+
 .mainpage-body-container {
     display: flex;
     width: 100%;
     max-width: 1400px;
     padding: 20px;
     gap: 30px;
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
     /* Full height minus navbar */
 }
 
@@ -100,10 +110,11 @@ input[type="radio"] {
     border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-auto-rows: max-content;
+    grid-auto-rows: minmax(400px, auto);
     gap: 25px;
     padding: 10px;
     overflow-y: auto;
+    overflow-x: hidden;
     align-content: start;
     /* Prevent stretching */
 }

@@ -5,6 +5,8 @@ import ItemMenu from './components/ItemMenu'
 import MenuAdminPage from './pages/MenuAdminPage'
 import MainPage from './pages/MainPage'
 import MisPerfilesPage from './pages/MisPerfilesPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { useEffect } from 'react'
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="/crear-item" element={<CreateItemPage />} />
         <Route path="/crear-perfil" element={<CreatePerfilPage />} />
         <Route path="/mis-perfiles" element={<MisPerfilesPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   )
