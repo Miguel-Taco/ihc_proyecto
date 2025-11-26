@@ -38,7 +38,7 @@
 .stats-number {
   font-size: 2rem;
   font-weight: 600;
-  color: white;
+  color: var(--text-primary);
 }
 
 .stats-label {
@@ -49,15 +49,15 @@
 
 .header-right {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
 }
 
 .user-icon {
   width: 45px;
   height: 45px;
-  background-color: white;
+  background-color: var(--text-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@
 
 .admin-badge {
   padding: 6px 18px;
-  background-color: white;
+  background-color: var(--text-primary);
   color: var(--color-primary);
   border-radius: 20px;
   font-weight: 500;
@@ -97,7 +97,7 @@
   padding: 15px 20px;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-primary);
   font-size: 1.1rem;
   text-align: left;
   cursor: pointer;
@@ -133,7 +133,7 @@
 .refresh-button {
   padding: 12px 25px;
   background-color: var(--color-secundary);
-  color: white;
+  color: var(--text-primary);
   border: 1px solid var(--color-accent2);
   border-radius: 8px;
   font-size: 1rem;
@@ -160,7 +160,7 @@
 .add-item-button {
   padding: 12px 30px;
   background-color: #008B8B;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -197,6 +197,12 @@
   font-size: 1rem;
 }
 
+/* Light theme override for table headers */
+:root[data-theme="light"] .table-header .table-cell {
+  color: #6b4423;
+  font-weight: 700;
+}
+
 .table-body {
   overflow-y: auto;
   flex: 1;
@@ -219,43 +225,43 @@
 }
 
 .table-cell {
-  color: white;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   font-size: 0.95rem;
 }
 
+/* --- ETIQUETAS (TAGS) MEJORADAS --- */
 .tag {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: 15px;
   font-size: 0.85rem;
   margin-right: 8px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: white !important;
+  /* Forzar texto blanco */
 }
 
 .tag.picante {
-  background-color: #8B4513;
-  color: white;
+  background-color: #d35400;
 }
 
 .tag.vegano {
-  background-color: #2E7D32;
-  color: white;
+  background-color: #27ae60;
 }
 
 .tag.gluten {
-  background-color: #D32F2F;
-  color: white;
+  background-color: #c0392b;
 }
 
 .tag.salado {
-  background-color: #1976D2;
-  color: white;
+  background-color: #2980b9;
 }
 
 .tag.vegetariano {
-  background-color: #388E3C;
-  color: white;
+  background-color: #16a085;
 }
 
 .disponibles-badge {
@@ -269,20 +275,21 @@
 
 .extra-tags-badge {
   display: inline-block;
-  padding: 4px 10px;
-  background-color: var(--color-accent2);
+  padding: 5px 10px;
+  background-color: #7f8c8d;
   color: white;
   border-radius: 12px;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 5px;
 }
 
+/* --- TOGGLE SWITCH REPARADO - CLASES ÚNICAS --- */
 .toggle-switch {
   position: relative;
   display: inline-block;
   width: 50px;
-  height: 24px;
+  height: 26px;
 }
 
 .toggle-switch input {
@@ -291,45 +298,48 @@
   height: 0;
 }
 
-.toggle-slider {
+.menu-toggle-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #555;
-  transition: 400ms;
-  border-radius: 24px;
+  background-color: #cccccc !important;
+  /* Gris claro - forzado */
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid #aaaaaa !important;
 }
 
-.toggle-slider:before {
+.menu-toggle-slider:before {
   position: absolute;
   content: "";
   height: 18px;
   width: 18px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
-  transition: 400ms;
+  background-color: #ffffff !important;
+  /* Blanco - forzado */
+  transition: .4s;
   border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.toggle-switch input:checked + .toggle-slider {
-  background-color: #4CAF50;
+.toggle-switch input:checked+.menu-toggle-slider {
+  background-color: #4CAF50 !important;
+  /* Verde - forzado */
+  border-color: #4CAF50 !important;
 }
 
-.toggle-switch input:disabled + .toggle-slider {
+.toggle-switch input:checked+.menu-toggle-slider:before {
+  transform: translateX(24px);
+}
+
+.toggle-switch input:disabled+.menu-toggle-slider {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.toggle-switch input:checked + .toggle-slider:before {
-  transform: translateX(26px);
-}
-
-.toggle-switch input:focus + .toggle-slider {
-  box-shadow: 0 0 1px #4CAF50;
+  background-color: #e0e0e0 !important;
 }
 
 /* Scrollbar styling */

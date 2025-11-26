@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import './styles/theme.css';
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,7 +10,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
+
   /*Colores globales para el sitio*/
   --color-primary: #222831;
   --color-secundary: #393E46;
@@ -17,7 +19,8 @@
 }
 
 * {
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin;
+  /* Firefox */
   scrollbar-color: var(--color-accent2) var(--color-secundary);
 }
 
@@ -44,10 +47,11 @@
   background-color: var(--color-accent);
 }
 
-*{
+* {
   box-sizing: border-box;
 }
-body{
+
+body {
   margin: 0;
   background: var(--color-primary);
 }
@@ -57,53 +61,60 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
-h1,h2,h3,h4{
+
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Nunito Sans', Courier, monospace;
   font-weight: 400;
   color: white;
 
 }
-h1{
+
+h1 {
   font-weight: 600;
   font-size: 2rem;
   margin: 0 0 5px 0;
 }
 
-h2{
+h2 {
   font-size: 1.5rem;
   margin: 0 0 5px 0;
 }
 
-p{
+p {
   font-family: 'Inter';
   margin: 0 0 5px 0;
   font-size: 1rem;
 }
 
-span{
+span {
   font-family: 'Inter';
 }
-.row{
-    display: flex;
+
+.row {
+  display: flex;
 }
 
-.col{
-    display: flex;
-    flex-direction: column;
+.col {
+  display: flex;
+  flex-direction: column;
 }
 
-.wrap{
-    flex-wrap: wrap;
+.wrap {
+  flex-wrap: wrap;
 }
 
-.padding{
-    padding: 10px;
+.padding {
+  padding: 10px;
 }
 
-.form-input-general{
+.form-input-general {
   width: 100%;
   background: none;
   border: 1px solid var(--color-accent2);
@@ -115,42 +126,42 @@ span{
   font-family: 'Inter';
 }
 
-.form-input-general:focus{
+.form-input-general:focus {
   outline: none;
   border: 1px solid var(--color-accent);
 }
 
-.button-general{
+.button-general {
   transition: 200ms;
   font-size: 1.1rem;
   border: 0;
-  border-radius: 5px;  
+  border-radius: 5px;
   padding: 8px 20px;
   text-align: center;
   font-family: 'Inter';
 }
 
-.text-add-style{
-    display: inline-block;
-    transition: 300ms;
-    cursor: pointer;
-    user-select: none;  
-    margin: 0 0 10px 0;
+.text-add-style {
+  display: inline-block;
+  transition: 300ms;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 0 10px 0;
 }
 
-.text-add-style:hover{
-    text-shadow: 0 0 5px rgb(255, 255, 255);
+.text-add-style:hover {
+  text-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
-.elements-list-form{
-    list-style: none;
-    padding: 0;
-    color: white;
+.elements-list-form {
+  list-style: none;
+  padding: 0;
+  color: white;
 }
 
-.elements-list-form li{
-    margin: 0 25px 10px 0;
-    padding: 2.5px 10px;
-    border-radius: 8px; 
-    background-color: var(--color-secundary); 
+.elements-list-form li {
+  margin: 0 25px 10px 0;
+  padding: 2.5px 10px;
+  border-radius: 8px;
+  background-color: var(--color-secundary);
 }
