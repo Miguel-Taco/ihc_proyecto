@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
 import logoOscuro from '../assets/imgs/logoTemaOscuro.png';
 import logoClaro from '../assets/imgs/logoTemaClaro.png';
+import authService from '../api/auth';
 import '../styles/LoginPage.css';
 
 const LoginPage = () => {
@@ -16,6 +17,9 @@ const LoginPage = () => {
         password: ''
     });
 
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
     };
@@ -25,13 +29,30 @@ const LoginPage = () => {
             ...formData,
             [e.target.name]: e.target.value
         });
+        setError(''); // Limpiar error al escribir
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle login logic here
-        console.log('Login data:', formData);
-        navigate('/'); // Redirect to home for now
+        setError('');
+        setLoading(true);
+
+        try {
+            const response = await authService.login(formData.email, formData.password);
+            console.log('Login exitoso:', response.data.user);
+
+            // Redirigir según rol
+            if (response.data.user.rol === 'admin') {
+                navigate('/menu-admin');
+            } else {
+                navigate('/');
+            }
+        } catch (error) {
+            console.error('Error en login:', error);
+            setError(error.error || 'Error al iniciar sesión. Por favor verifica tus credenciales.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -58,6 +79,19 @@ const LoginPage = () => {
                         <p className="auth-subtitle">Ingresa a tu cuenta para continuar</p>
                     </div>
 
+                    {error && (
+                        <div style={{
+                            backgroundColor: '#f44336',
+                            color: 'white',
+                            padding: '12px',
+                            borderRadius: '8px',
+                            marginBottom: '20px',
+                            textAlign: 'center'
+                        }}>
+                            {error}
+                        </div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="auth-form">
                         <div className="form-group">
                             <label htmlFor="email">Correo Electrónico</label>
@@ -69,6 +103,7 @@ const LoginPage = () => {
                                 onChange={handleChange}
                                 placeholder="ejemplo@correo.com"
                                 required
+                                disabled={loading}
                             />
                         </div>
 
@@ -82,6 +117,7 @@ const LoginPage = () => {
                                 onChange={handleChange}
                                 placeholder="••••••••"
                                 required
+                                disabled={loading}
                             />
                         </div>
 
@@ -91,8 +127,8 @@ const LoginPage = () => {
                             </Link>
                         </div>
 
-                        <button type="submit" className="auth-button">
-                            Iniciar Sesión
+                        <button type="submit" className="auth-button" disabled={loading}>
+                            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                         </button>
                     </form>
 
