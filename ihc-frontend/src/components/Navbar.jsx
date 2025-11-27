@@ -28,19 +28,10 @@ const Navbar = () => {
 
         window.addEventListener('storage', handleStorageChange);
 
-        // Verificar cada segundo por cambios (para detectar cambios en la misma pestaña)
-        const interval = setInterval(() => {
-            const updatedUser = authService.getCurrentUser();
-            if (JSON.stringify(updatedUser) !== JSON.stringify(user)) {
-                setUser(updatedUser);
-            }
-        }, 1000);
-
         return () => {
             window.removeEventListener('storage', handleStorageChange);
-            clearInterval(interval);
         };
-    }, [user]);
+    }, []); // Removed user dependency to prevent infinite loop
 
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);

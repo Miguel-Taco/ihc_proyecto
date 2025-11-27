@@ -8,6 +8,7 @@
 --
 CREATE TABLE `usuario` (
   `id_usuario` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre` VARCHAR(150) NOT NULL,
   `email` VARCHAR(255) NOT NULL UNIQUE,
   `password_hash` VARCHAR(255) NOT NULL,
   `rol` ENUM('admin', 'cliente') NOT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE `categoria` (
 
 --
 -- Estructura de tabla para `ingrediente`
--- CatÃ¡logo pre-cargado de ingredientes [cite: 69]
+-- Catálogo pre-cargado de ingredientes [cite: 69]
 --
 CREATE TABLE `ingrediente` (
   `id_ingrediente` INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,7 +35,7 @@ CREATE TABLE `ingrediente` (
 
 --
 -- Estructura de tabla para `alergeno`
--- CatÃ¡logo pre-cargado de alÃ©rgenos [cite: 67]
+-- Catálogo pre-cargado de alérgenos [cite: 67]
 --
 CREATE TABLE `alergeno` (
   `id_alergeno` INT AUTO_INCREMENT PRIMARY KEY,
@@ -43,7 +44,7 @@ CREATE TABLE `alergeno` (
 
 --
 -- Estructura de tabla para `etiqueta`
--- CatÃ¡logo pre-cargado de etiquetas dietÃ©ticas (Vegano, etc.) [cite: 68]
+-- Catálogo pre-cargado de etiquetas dietéticas (Vegano, etc.) [cite: 68]
 --
 CREATE TABLE `etiqueta` (
   `id_etiqueta` INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,7 +54,7 @@ CREATE TABLE `etiqueta` (
 
 --
 -- Estructura de tabla para `item`
--- Cada plato, bebida o postre del menÃº [cite: 52]
+-- Cada plato, bebida o postre del menú [cite: 52]
 --
 CREATE TABLE `item` (
   `id_item` INT AUTO_INCREMENT PRIMARY KEY,
@@ -77,7 +78,7 @@ CREATE TABLE `perfil` (
   `id_perfil` INT AUTO_INCREMENT PRIMARY KEY,
   `id_usuario` INT NOT NULL,
   `nombre_perfil` VARCHAR(100) NOT NULL,
-  `id_dieta_etiqueta` INT COMMENT 'FK a la etiqueta tipo ''dieta'' (Vegano, OmnÃ­voro, etc.)',
+  `id_dieta_etiqueta` INT COMMENT 'FK a la etiqueta tipo ''dieta'' (Vegano, Omnívoro, etc.)',
   `prefiere_picante` ENUM('0', '1', '2') DEFAULT NULL,
   `prefiere_sabor` ENUM('dulce', 'salado', 'agridulce') DEFAULT NULL,
   `fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -91,7 +92,7 @@ CREATE TABLE `perfil` (
 -- --------------------------------------------------------
 
 --
--- RelaciÃ³n: item <-> ingrediente [cite: 53]
+-- Relación: item <-> ingrediente [cite: 53]
 --
 CREATE TABLE `item_ingrediente` (
   `id_item` INT NOT NULL,
@@ -102,7 +103,7 @@ CREATE TABLE `item_ingrediente` (
 ) ENGINE=InnoDB;
 
 --
--- RelaciÃ³n: item <-> etiqueta [cite: 54]
+-- Relación: item <-> etiqueta [cite: 54]
 --
 CREATE TABLE `item_etiqueta` (
   `id_item` INT NOT NULL,
@@ -113,8 +114,8 @@ CREATE TABLE `item_etiqueta` (
 ) ENGINE=InnoDB;
 
 --
--- RelaciÃ³n: ingrediente <-> alergeno
--- CLAVE para la detecciÃ³n automÃ¡tica de alÃ©rgenos [cite: 55]
+-- Relación: ingrediente <-> alergeno
+-- CLAVE para la detección automática de alérgenos [cite: 55]
 --
 CREATE TABLE `ingrediente_alergeno` (
   `id_ingrediente` INT NOT NULL,
@@ -125,8 +126,8 @@ CREATE TABLE `ingrediente_alergeno` (
 ) ENGINE=InnoDB;
 
 --
--- RelaciÃ³n: perfil <-> alergeno
--- AlÃ©rgenos que un perfil especÃ­fico desea evitar [cite: 46]
+-- Relación: perfil <-> alergeno
+-- Alérgenos que un perfil específico desea evitar [cite: 46]
 --
 CREATE TABLE `perfil_alergeno_evitado` (
   `id_perfil` INT NOT NULL,
@@ -134,4 +135,28 @@ CREATE TABLE `perfil_alergeno_evitado` (
   PRIMARY KEY (`id_perfil`, `id_alergeno`),
   FOREIGN KEY (`id_perfil`) REFERENCES `perfil`(`id_perfil`) ON DELETE CASCADE,
   FOREIGN KEY (`id_alergeno`) REFERENCES `alergeno`(`id_alergeno`) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+--
+-- Estructura de tabla para `calificacion`
+-- Registra las estrellas (1-5) y comentarios de los usuarios por plato
+--
+CREATE TABLE `calificacion` (
+  `id_calificacion` INT AUTO_INCREMENT PRIMARY KEY,
+  `id_usuario` INT NOT NULL,
+  `id_item` INT NOT NULL,
+  `puntuacion` TINYINT UNSIGNED NOT NULL COMMENT 'Valor entre 1 y 5',
+  `comentario` TEXT DEFAULT NULL,
+  `fecha_calificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  
+  -- Restricciones de Llaves Foráneas
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`) ON DELETE CASCADE,
+  FOREIGN KEY (`id_item`) REFERENCES `item`(`id_item`) ON DELETE CASCADE,
+
+  -- REGLA IMPORTANTE: Un usuario solo puede calificar un mismo plato una vez
+  -- Si vuelve a votar, se debe actualizar el registro existente, no crear uno nuevo.
+  UNIQUE KEY `unique_voto_usuario_item` (`id_usuario`, `id_item`),
+
+  -- VALIDACIÓN: Asegura que la puntuación sea solo entre 1 y 5 (en MySQL 8.0.16+)
+  CONSTRAINT `check_rango_estrellas` CHECK (`puntuacion` >= 1 AND `puntuacion` <= 5)
 ) ENGINE=InnoDB;

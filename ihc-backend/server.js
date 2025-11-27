@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 // Importar rutas
 const itemRoutes = require('./src/routes/itemRoutes');
 const authRoutes = require('./src/routes/authRoutes');
+const ratingRoutes = require('./src/routes/ratingRoutes');
 
 
 // Configurar variables de entorno
@@ -39,6 +40,7 @@ app.get('/', (req, res) => {
 // Rutas de la API
 app.use('/api/items', itemRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/ratings', ratingRoutes);
 
 
 // Ruta 404 (debe ir después de todas las rutas)

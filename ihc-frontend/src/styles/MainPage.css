@@ -102,6 +102,32 @@ input[type="radio"] {
     outline: none;
 }
 
+/* Checkbox Styles */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    accent-color: var(--color-accent);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.checkbox-item label {
+    color: var(--color-accent2);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.checkbox-item:hover label {
+    color: white;
+}
+
 /* Items Grid */
 .items-container {
     flex: 1;
@@ -135,4 +161,73 @@ input[type="radio"] {
 .items-container::-webkit-scrollbar-thumb {
     background-color: var(--color-secundary);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Clear Filters Button */
+.clear-filters-btn {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.clear-filters-btn:hover {
+    background-color: var(--color-accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Filter Summary */
+.filter-summary {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.filter-summary p {
+    color: var(--color-accent2);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* No Results Message */
+.no-results {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.no-results p {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.no-results button {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.no-results button:hover {
+    background-color: var(--color-accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
