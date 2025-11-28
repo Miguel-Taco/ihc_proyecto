@@ -1,4 +1,5 @@
 import '../styles/MainPage.css'
+import Chatbot from '../components/Chatbot';
 import Navbar from '../components/Navbar';
 import ItemMenu from '../components/ItemMenu';
 import { useEffect, useState } from 'react';
@@ -289,7 +290,7 @@ function MainPage() {
                     )}
                 </section>
             </div>
-
+        <Chatbot />
         </div>
     );
 }
